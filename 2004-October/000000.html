@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Spew-devel] [Bug #2685] Use DESTDIR instead of bindir for Debian
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/spew-devel/2004-October/index.html" >
+   <LINK REL="made" HREF="mailto:spew-devel%40lists.berlios.de?Subject=Re%3A%20%5BSpew-devel%5D%20%5BBug%20%232685%5D%20Use%20DESTDIR%20instead%20of%20bindir%20for%20Debian&In-Reply-To=%3C200410251529.i9PFTJGO003254%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Spew-devel] [Bug #2685] Use DESTDIR instead of bindir for Debian</H1>
+    <B>noreply at berlios.de</B> 
+    <A HREF="mailto:spew-devel%40lists.berlios.de?Subject=Re%3A%20%5BSpew-devel%5D%20%5BBug%20%232685%5D%20Use%20DESTDIR%20instead%20of%20bindir%20for%20Debian&In-Reply-To=%3C200410251529.i9PFTJGO003254%40unicorn.berlios.de%3E"
+       TITLE="[Spew-devel] [Bug #2685] Use DESTDIR instead of bindir for Debian">noreply at berlios.de
+       </A><BR>
+    <I>Mon Oct 25 17:29:19 CEST 2004</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[Spew-devel] [Bug #2685] Use DESTDIR instead of bindir for Debian
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #2685, was updated on 2004-Oct-25 09:29
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Build
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: Use DESTDIR instead of bindir for Debian
+
+Details: The Debian package maintainer has request that the following 
+patch be applied to make maintaining the package easier:
+
+--- spew-1.0.3.orig/src/Makefile.am
++++ spew-1.0.3/src/Makefile.am
+@@ -40,5 +40,5 @@
+ spew_LDFLAGS = $(STATIC_LINK)
+ 
+ install-exec-local:
+-       (cd $(bindir) &amp;&amp; $(LN_S) -f spew snarf)
+-       (cd $(bindir) &amp;&amp; $(LN_S) -f spew regorge)
++       (cd $(DESTDIR)$(bindir) &amp;&amp; $(LN_S) -f spew snarf)
++       (cd $(DESTDIR)$(bindir) &amp;&amp; $(LN_S) -f spew regorge)
+--- spew-1.0.3.orig/man/Makefile.am
++++ spew-1.0.3/man/Makefile.am
+@@ -11,8 +11,8 @@
+ 
+ 
+ install-data-local:
+-       (cd $(mandir)/man1 &amp;&amp; $(LN_S) -f spew.1 snarf.1)
+-       (cd $(mandir)/man1 &amp;&amp; $(LN_S) -f spew.1 regorge.1)
++       (cd $(DESTDIR)$(mandir)/man1 &amp;&amp; $(LN_S) -f spew.1 snarf.1)
++       (cd $(DESTDIR)$(mandir)/man1 &amp;&amp; $(LN_S) -f spew.1 regorge.1)
+ 
+ help2man:
+        help2man --section=1 --no-info --name=&quot;measures I/O performance and/or 
+generates I/O load&quot; --include=&quot;spew.1.include&quot; --output=spew.1.in ../src/spew
+
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=2685&amp;group_id=2389">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=2685&amp;group_id=2389</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[Spew-devel] [Bug #2685] Use DESTDIR instead of bindir for Debian
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/spew-devel">More information about the Spew-devel
+mailing list</a><br>
+</body></html>

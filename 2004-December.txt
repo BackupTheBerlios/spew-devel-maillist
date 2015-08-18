@@ -1,0 +1,458 @@
+From noreply at berlios.de  Fri Dec  3 02:04:19 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 2 Dec 2004 18:04:19 -0700 (MST)
+Subject: [Spew-devel] [Bug #2707] configure libncurses check broken for Debian/stable
+Message-ID: <200412030104.iB314Jji024613@unicorn.berlios.de>
+
+Bug #2707, was updated on 2004-Oct-29 13:48
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Build
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: configure libncurses check broken for Debian/stable
+
+Details: The configure script checks for the call is_term_resized() to determine 
+whether nurses5 is installed.  Apparently this call is only available in later versions of ncurses.  In particular, it is not in the 5.2.2 release shipped in Debian/woody,
+so configuration fails with:
+
+checking for is_term_resized in -lncurses... no
+configure: error: PACKAGE requires ncurses
+
+when run.  Need to find a more common function that is available in ncurses, but
+not available in curses.  Beware of bastardized mixed curses/ncurses installation
+in HP-UX.
+
+
+Follow-Ups:
+
+Date: 2004-Dec-02 18:04
+By: apers
+
+Comment:
+Use wresize() call in configure.ac to determine whether ncurses is available rather than is_term_resized().
+
+Revision 13.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=2707&group_id=2389
+
+
+From noreply at berlios.de  Fri Dec 10 06:17:59 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 9 Dec 2004 22:17:59 -0700 (MST)
+Subject: [Spew-devel] [Bug #2760] Usage error messages could be more helpful
+Message-ID: <200412100517.iBA5Hxkq016327@unicorn.berlios.de>
+
+Bug #2760, was updated on 2004-Nov-09 13:53
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 1
+Submitted by: apers
+Assigned to : apers
+Summary: Usage error messages could be more helpful
+
+Details: Some of the error messages spit out when parsing command-line options could be more helpful:
+
+1.  when transfer size in inadvertanly ommited, you get the following message:
+
+   spew: Could not parse size.
+
+A better messages indicating that the paramter is missing would be better. Also a usage statement should be spit out.
+
+2.  When not giving a block size with the -d|--direct-io option, you get
+the following message:
+  
+    spew: MIN_BUFFER_SIZE must be a multiple of 1024 bytes when using direct I/O.
+
+A better message would indicate that you must use the -b option to 
+set the block size to 1024 (or greater).
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=2760&group_id=2389
+
+
+From noreply at berlios.de  Fri Dec 10 06:45:23 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 9 Dec 2004 22:45:23 -0700 (MST)
+Subject: [Spew-devel] [Feature #409] Use config file for common options
+Message-ID: <200412100545.iBA5jNHi023604@unicorn.berlios.de>
+
+Feature Request #409, was updated on 2004-Dec-09 22:45
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=409&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Use config file for common options
+
+By: apers
+Date: 2004-Dec-09 22:45
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041128 Firefox/1.0 (Debian package 1.0-4)
+
+Use a config file, e.g., $HOME/.spewrc to read in and
+use common options,  like --units.  It can be annoying
+to have to specify these when you commonlly use
+somthing other than
+the default values.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=409&group_id=2389
+
+
+From noreply at berlios.de  Fri Dec 10 06:45:09 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 9 Dec 2004 22:45:09 -0700 (MST)
+Subject: [Spew-devel] [Feature #409] Use config file for common options
+Message-ID: <200412100545.iBA5j9tn023338@unicorn.berlios.de>
+
+Feature Request #409, was updated on 2004-Dec-09 22:45
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=409&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Use config file for common options
+
+By: apers
+Date: 2004-Dec-09 22:45
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041128 Firefox/1.0 (Debian package 1.0-4)
+
+Use a config file, e.g., $HOME/.spewrc to read in and
+use common options,  like --units.  It can be annoying
+to have to specify these when you commonlly use
+somthing other than
+the default values.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=409&group_id=2389
+
+
+From noreply at berlios.de  Fri Dec 10 06:45:48 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 9 Dec 2004 22:45:48 -0700 (MST)
+Subject: [Spew-devel] [Feature #366] Add option to use a buffer offset
+Message-ID: <200412100545.iBA5jmuq024069@unicorn.berlios.de>
+
+Feature Request #366, was updated on 2004-Nov-19 17:38
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=366&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Add option to use a buffer offset
+
+By: apers
+Date: 2004-Nov-19 17:38
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041111 Firefox/1.0 (Debian package 1.0-2)
+
+If would be helpful to have an option to offset the
+buffer a certain amount of bytes either using a fixed
+or a random amount.   This would aid system and driver
+testing on OS's like HP-UX that don't always align
+buffer head data on block boundaries.  Example:
+
+--buffer-offset=OFFSET
+
+or to mirror the max-buffer-size/min-buffer-size options:
+
+--min-buffer-offset=OFFSET --max-buffer-offset=OFFSET
+
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=366&group_id=2389
+
+
+From noreply at berlios.de  Fri Dec 10 06:46:17 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 9 Dec 2004 22:46:17 -0700 (MST)
+Subject: [Spew-devel] [Feature #409] Use config file for common options
+Message-ID: <200412100546.iBA5kHTa024718@unicorn.berlios.de>
+
+Feature Request #409, was updated on 2004-Dec-09 22:45
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=409&group_id=2389
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Use config file for common options
+
+By: apers
+Date: 2004-Dec-09 22:45
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041128 Firefox/1.0 (Debian package 1.0-4)
+
+Use a config file, e.g., $HOME/.spewrc to read in and
+use common options,  like --units.  It can be annoying
+to have to specify these when you commonlly use
+somthing other than
+the default values.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=409&group_id=2389
+
+
+From noreply at berlios.de  Fri Dec 10 06:46:36 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 9 Dec 2004 22:46:36 -0700 (MST)
+Subject: [Spew-devel] [Feature #366] Add option to use a buffer offset
+Message-ID: <200412100546.iBA5kakR025705@unicorn.berlios.de>
+
+Feature Request #366, was updated on 2004-Nov-19 17:38
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=366&group_id=2389
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Add option to use a buffer offset
+
+By: apers
+Date: 2004-Nov-19 17:38
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041111 Firefox/1.0 (Debian package 1.0-2)
+
+If would be helpful to have an option to offset the
+buffer a certain amount of bytes either using a fixed
+or a random amount.   This would aid system and driver
+testing on OS's like HP-UX that don't always align
+buffer head data on block boundaries.  Example:
+
+--buffer-offset=OFFSET
+
+or to mirror the max-buffer-size/min-buffer-size options:
+
+--min-buffer-offset=OFFSET --max-buffer-offset=OFFSET
+
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=366&group_id=2389
+
+
+From noreply at berlios.de  Fri Dec 17 01:27:06 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 16 Dec 2004 17:27:06 -0700 (MST)
+Subject: [Spew-devel] [Bug #2760] Usage error messages could be more helpful
+Message-ID: <200412170027.iBH0R67n003864@unicorn.berlios.de>
+
+Bug #2760, was updated on 2004-Nov-09 13:53
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 1
+Submitted by: apers
+Assigned to : apers
+Summary: Usage error messages could be more helpful
+
+Details: Some of the error messages spit out when parsing command-line options could be more helpful:
+
+1.  when transfer size in inadvertanly ommited, you get the following message:
+
+   spew: Could not parse size.
+
+A better messages indicating that the paramter is missing would be better. Also a usage statement should be spit out.
+
+2.  When not giving a block size with the -d|--direct-io option, you get
+the following message:
+  
+    spew: MIN_BUFFER_SIZE must be a multiple of 1024 bytes when using direct I/O.
+
+A better message would indicate that you must use the -b option to 
+set the block size to 1024 (or greater).
+
+
+Follow-Ups:
+
+Date: 2004-Dec-16 17:27
+By: apers
+
+Comment:
+Fixed in revision 17.
+
+Now issue the following message if TRANSFER_SIZE and/or FILE arguments are ommitted from the comand-line:
+
+    spew: Need TRANSFER_SIZE and FILE.
+
+a usage message is also emitted.
+
+Now issue the following message if an invalid argument is 
+used for -b|--min-block-size along with the -d|--direct-io option:
+
+   spew: MIN_BUFFER_SIZE must be a multiple of 1024  bytes when  using direct I/O. Use -b|--min-buffer-size to set MIN_BUFFER_SIZE.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=2760&group_id=2389
+
+
+From noreply at berlios.de  Thu Dec 23 18:53:09 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 23 Dec 2004 10:53:09 -0700 (MST)
+Subject: [Spew-devel] [Feature #431] Need more statistical information
+Message-ID: <200412231753.iBNHr94I018385@unicorn.berlios.de>
+
+Feature Request #431, was updated on 2004-Dec-23 10:53
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=431&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Need more statistical information 
+
+By: apers
+Date: 2004-Dec-23 10:53
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041207 Firefox/1.0 (Debian package 1.0-5)
+
+The --detailed-statistics option should output more
+statistical information such as standard deviation.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=431&group_id=2389
+
+
+From noreply at berlios.de  Thu Dec 23 18:56:34 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 23 Dec 2004 10:56:34 -0700 (MST)
+Subject: [Spew-devel] [Feature #432] Output IOPS statistics
+Message-ID: <200412231756.iBNHuY5Q018538@unicorn.berlios.de>
+
+Feature Request #432, was updated on 2004-Dec-23 10:56
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=432&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Output IOPS statistics
+
+By: apers
+Date: 2004-Dec-23 10:56
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041207 Firefox/1.0 (Debian package 1.0-5)
+
+The --statistics and --detailed statistics option
+should output
+IOPS (I/O's per second) information.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=432&group_id=2389
+
+
+From noreply at berlios.de  Thu Dec 23 18:57:04 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 23 Dec 2004 10:57:04 -0700 (MST)
+Subject: [Spew-devel] [Feature #431] Need more statistical information
+Message-ID: <200412231757.iBNHv4fm018598@unicorn.berlios.de>
+
+Feature Request #431, was updated on 2004-Dec-23 10:53
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=431&group_id=2389
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Need more statistical information 
+
+By: apers
+Date: 2004-Dec-23 10:53
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041207 Firefox/1.0 (Debian package 1.0-5)
+
+The --detailed-statistics option should output more
+statistical information such as standard deviation.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=431&group_id=2389
+
+
+From noreply at berlios.de  Thu Dec 23 18:57:05 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 23 Dec 2004 10:57:05 -0700 (MST)
+Subject: [Spew-devel] [Feature #432] Output IOPS statistics
+Message-ID: <200412231757.iBNHv5hi018609@unicorn.berlios.de>
+
+Feature Request #432, was updated on 2004-Dec-23 10:56
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=432&group_id=2389
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Output IOPS statistics
+
+By: apers
+Date: 2004-Dec-23 10:56
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041207 Firefox/1.0 (Debian package 1.0-5)
+
+The --statistics and --detailed statistics option
+should output
+IOPS (I/O's per second) information.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=432&group_id=2389
+
+

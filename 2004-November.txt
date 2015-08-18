@@ -1,0 +1,82 @@
+From noreply at berlios.de  Tue Nov  9 21:53:04 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Tue, 9 Nov 2004 13:53:04 -0700 (MST)
+Subject: [Spew-devel] [Bug #2760] Usage error messages could be more helpful
+Message-ID: <200411092053.iA9Kr4mt016768@unicorn.berlios.de>
+
+Bug #2760, was updated on 2004-Nov-09 13:53
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 1
+Submitted by: apers
+Assigned to : none
+Summary: Usage error messages could be more helpful
+
+Details: Some of the error messages spit out when parsing command-line options could be more helpful:
+
+1.  when transfer size in inadvertanly ommited, you get the following message:
+
+   spew: Could not parse size.
+
+A better messages indicating that the paramter is missing would be better. Also a usage statement should be spit out.
+
+2.  When not giving a block size with the -d|--direct-io option, you get
+the following message:
+  
+    spew: MIN_BUFFER_SIZE must be a multiple of 1024 bytes when using direct I/O.
+
+A better message would indicate that you must use the -b option to 
+set the block size to 1024 (or greater).
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=2760&group_id=2389
+
+
+From noreply at berlios.de  Sat Nov 20 01:38:59 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Fri, 19 Nov 2004 17:38:59 -0700 (MST)
+Subject: [Spew-devel] [Feature #366] Add option to use a buffer offset
+Message-ID: <200411200038.iAK0cx5U021624@unicorn.berlios.de>
+
+Feature Request #366, was updated on 2004-Nov-19 17:38
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=366&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Add option to use a buffer offset
+
+By: apers
+Date: 2004-Nov-19 17:38
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041111 Firefox/1.0 (Debian package 1.0-2)
+
+If would be helpful to have an option to offset the
+buffer a certain amount of bytes either using a fixed
+or a random amount.   This would aid system and driver
+testing on OS's like HP-UX that don't always align
+buffer head data on block boundaries.  Example:
+
+--buffer-offset=OFFSET
+
+or to mirror the max-buffer-size/min-buffer-size options:
+
+--min-buffer-offset=OFFSET --max-buffer-offset=OFFSET
+
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=366&group_id=2389
+
+

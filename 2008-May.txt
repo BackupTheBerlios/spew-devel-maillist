@@ -1,0 +1,351 @@
+From admin at berlios.de  Fri May  9 18:13:18 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 9 May 2008 10:13:18 -0600 (MDT)
+Subject: [Spew-devel] [Bug #13783] IOPS counter not being reset between
+	iterations
+Message-ID: <200805091613.m49GDI3Y029792@unicorn.berlios.de>
+
+Bug #13783, was updated on 2008-May-09 10:13
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: IOPS counter not being reset between iterations
+
+Details: The counter for IOPS is not being reset between iterations. Example:
+
+$ spew  -v -d -u m -i 3 -b 1k 1m /tmp/q
+Itereration:        1    Total runtime: 00:00:01
+WTR:        0.65 MiB/s   Transfer time: 00:00:01    IOPS:      663.24
+
+Itereration:        2    Total runtime: 00:00:03
+WTR:        0.65 MiB/s   Transfer time: 00:00:01    IOPS:     1327.74
+
+Itereration:        3    Total runtime: 00:00:04
+WTR:        0.65 MiB/s   Transfer time: 00:00:01    IOPS:     1990.43
+
+Total iterations:                                3
+Total runtime:                            00:00:04
+Total write transfer time (WTT):          00:00:04
+Total write transfer rate (WTR):        0.65 MiB/s
+Total write IOPS:                     663.53 IOPS
+
+Cumulative values shown when using the -v|--detailed-statistics option are calculated correctly.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13783&group_id=2389
+
+
+From admin at berlios.de  Fri May  9 21:42:47 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 9 May 2008 13:42:47 -0600 (MDT)
+Subject: [Spew-devel] [Bug #12693] Compile fails with gcc 4.3 due to missing
+	includes
+Message-ID: <200805091942.m49JglYP016580@unicorn.berlios.de>
+
+Bug #12693, was updated on 2007-Dec-11 14:10
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Build
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: Compile fails with gcc 4.3 due to missing includes
+
+Details: Due to header cleanup in gcc-4.3, many more header files need to be explicitly included.  See
+
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=455311
+
+for details.
+
+Follow-Ups:
+
+Date: 2008-May-09 13:42
+By: apers
+
+Comment:
+Fixed in revision 75.
+
+Added <cstring> includes to make gcc-4.3 happy. 
+Use const char* for fmt in functions taking variable argument
+to keep gcc-4.2 happy.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12693&group_id=2389
+
+
+From admin at berlios.de  Sat May 10 00:40:24 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 9 May 2008 16:40:24 -0600 (MDT)
+Subject: [Spew-devel] [Bug #13783] IOPS counter not being reset between
+	iterations
+Message-ID: <200805092240.m49MeOho020996@unicorn.berlios.de>
+
+Bug #13783, was updated on 2008-May-09 10:13
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: IOPS counter not being reset between iterations
+
+Details: The counter for IOPS is not being reset between iterations. Example:
+
+$ spew  -v -d -u m -i 3 -b 1k 1m /tmp/q
+Itereration:        1    Total runtime: 00:00:01
+WTR:        0.65 MiB/s   Transfer time: 00:00:01    IOPS:      663.24
+
+Itereration:        2    Total runtime: 00:00:03
+WTR:        0.65 MiB/s   Transfer time: 00:00:01    IOPS:     1327.74
+
+Itereration:        3    Total runtime: 00:00:04
+WTR:        0.65 MiB/s   Transfer time: 00:00:01    IOPS:     1990.43
+
+Total iterations:                                3
+Total runtime:                            00:00:04
+Total write transfer time (WTT):          00:00:04
+Total write transfer rate (WTR):        0.65 MiB/s
+Total write IOPS:                     663.53 IOPS
+
+Cumulative values shown when using the -v|--detailed-statistics option are calculated correctly.
+
+Follow-Ups:
+
+Date: 2008-May-09 16:40
+By: apers
+
+Comment:
+Fixed in revision 76.
+
+IOPS calculation was being based on cumulative number
+of transfers for every job. 
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13783&group_id=2389
+
+
+From admin at berlios.de  Sat May 10 01:45:59 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 9 May 2008 17:45:59 -0600 (MDT)
+Subject: [Spew-devel] [Bug #12427] File completely overwritten when using
+	---offset option
+Message-ID: <200805092345.m49NjxEr021158@unicorn.berlios.de>
+
+Bug #12427, was updated on 2007-Nov-13 11:57
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: File completely overwritten when using ---offset option
+
+Details: When using spew --write or --raw on an existing file with the -o|--offset option, the file is completely overwritten.  Data before the offset is set to 0 and the file is truncated to offset plus transfer size. The expected behavior is that just the offset + transfer size should be overwritten, not the entire file.
+
+Follow-Ups:
+
+Date: 2008-May-09 17:45
+By: apers
+
+Comment:
+Fixed in revision 77.
+
+Do not open with O_TRUNC if -o|--offset is used.
+-------------------------------------------------------
+
+Date: 2007-Nov-13 14:18
+By: apers
+
+Comment:
+This behavior is caused by the use of the O_TRUNC flag on open.  It should not be set when using an offset != 0.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12427&group_id=2389
+
+
+From admin at berlios.de  Wed May 14 00:06:09 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 13 May 2008 16:06:09 -0600 (MDT)
+Subject: [Spew-devel] [Bug #13783] IOPS counter not being reset between
+	iterations
+Message-ID: <200805132206.m4DM69Je018939@unicorn.berlios.de>
+
+Bug #13783, was updated on 2008-May-09 10:13
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: IOPS counter not being reset between iterations
+
+Details: The counter for IOPS is not being reset between iterations. Example:
+
+$ spew  -v -d -u m -i 3 -b 1k 1m /tmp/q
+Itereration:        1    Total runtime: 00:00:01
+WTR:        0.65 MiB/s   Transfer time: 00:00:01    IOPS:      663.24
+
+Itereration:        2    Total runtime: 00:00:03
+WTR:        0.65 MiB/s   Transfer time: 00:00:01    IOPS:     1327.74
+
+Itereration:        3    Total runtime: 00:00:04
+WTR:        0.65 MiB/s   Transfer time: 00:00:01    IOPS:     1990.43
+
+Total iterations:                                3
+Total runtime:                            00:00:04
+Total write transfer time (WTT):          00:00:04
+Total write transfer rate (WTR):        0.65 MiB/s
+Total write IOPS:                     663.53 IOPS
+
+Cumulative values shown when using the -v|--detailed-statistics option are calculated correctly.
+
+Follow-Ups:
+
+Date: 2008-May-13 16:06
+By: apers
+
+Comment:
+Fixed in release 1.0.7.
+-------------------------------------------------------
+
+Date: 2008-May-09 16:40
+By: apers
+
+Comment:
+Fixed in revision 76.
+
+IOPS calculation was being based on cumulative number
+of transfers for every job. 
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13783&group_id=2389
+
+
+From admin at berlios.de  Wed May 14 00:06:32 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 13 May 2008 16:06:32 -0600 (MDT)
+Subject: [Spew-devel] [Bug #12693] Compile fails with gcc 4.3 due to missing
+	includes
+Message-ID: <200805132206.m4DM6WKm019118@unicorn.berlios.de>
+
+Bug #12693, was updated on 2007-Dec-11 14:10
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Build
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: Compile fails with gcc 4.3 due to missing includes
+
+Details: Due to header cleanup in gcc-4.3, many more header files need to be explicitly included.  See
+
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=455311
+
+for details.
+
+Follow-Ups:
+
+Date: 2008-May-13 16:06
+By: apers
+
+Comment:
+Fixed in release 1.0.7.
+-------------------------------------------------------
+
+Date: 2008-May-09 13:42
+By: apers
+
+Comment:
+Fixed in revision 75.
+
+Added <cstring> includes to make gcc-4.3 happy. 
+Use const char* for fmt in functions taking variable argument
+to keep gcc-4.2 happy.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12693&group_id=2389
+
+
+From admin at berlios.de  Wed May 14 00:07:16 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 13 May 2008 16:07:16 -0600 (MDT)
+Subject: [Spew-devel] [Bug #12427] File completely overwritten when using
+	---offset option
+Message-ID: <200805132207.m4DM7GHc019531@unicorn.berlios.de>
+
+Bug #12427, was updated on 2007-Nov-13 11:57
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: File completely overwritten when using ---offset option
+
+Details: When using spew --write or --raw on an existing file with the -o|--offset option, the file is completely overwritten.  Data before the offset is set to 0 and the file is truncated to offset plus transfer size. The expected behavior is that just the offset + transfer size should be overwritten, not the entire file.
+
+Follow-Ups:
+
+Date: 2008-May-13 16:07
+By: apers
+
+Comment:
+Fixed in release 1.0.7.
+-------------------------------------------------------
+
+Date: 2008-May-09 17:45
+By: apers
+
+Comment:
+Fixed in revision 77.
+
+Do not open with O_TRUNC if -o|--offset is used.
+-------------------------------------------------------
+
+Date: 2007-Nov-13 14:18
+By: apers
+
+Comment:
+This behavior is caused by the use of the O_TRUNC flag on open.  It should not be set when using an offset != 0.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12427&group_id=2389
+
+

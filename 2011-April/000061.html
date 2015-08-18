@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Spew-devel] Static linking against ncurses won't work if ncurses provides gpm support
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/spew-devel/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:spew-devel%40lists.berlios.de?Subject=Re%3A%20%5BSpew-devel%5D%20Static%20linking%20against%20ncurses%20won%27t%20work%20if%20ncurses%0A%20provides%20gpm%20support&In-Reply-To=%3C4D9D9DB0.1060503%40gentoo.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Spew-devel] Static linking against ncurses won't work if ncurses provides gpm support</H1>
+    <B>Anthony G. Basile</B> 
+    <A HREF="mailto:spew-devel%40lists.berlios.de?Subject=Re%3A%20%5BSpew-devel%5D%20Static%20linking%20against%20ncurses%20won%27t%20work%20if%20ncurses%0A%20provides%20gpm%20support&In-Reply-To=%3C4D9D9DB0.1060503%40gentoo.org%3E"
+       TITLE="[Spew-devel] Static linking against ncurses won't work if ncurses provides gpm support">blueness at gentoo.org
+       </A><BR>
+    <I>Thu Apr  7 13:19:12 CEST 2011</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi list,
+
+Low volume list, but a nice little package.  It should get more love.  I
+just introduced it as part of Gentoo's portage so our users can enjoy.
+
+Since gentoo is a from source distro, our packaging system allows the
+user to choose how binaries will be built.  Spew has no problems
+building/running when it is dynamically linked, but static linking is
+problematic.  You hit it when spew is statically linked against a
+gpm-enabled ncurses.  ncurses dlopen's the gpm libraries and so they are
+still needed at runtime --- classic issue between dlopen/static linking.
+
+I resolved the problem by making the gentoo dependency reflect the fact
+that, if you want static linking, then your ncurses must not have gpm
+support.  This is part of the problem behind this discussion:
+
+<A HREF="http://developer.berlios.de/forum/forum.php?forum_id=7361">http://developer.berlios.de/forum/forum.php?forum_id=7361</A>
+
+Gentoo can at least reflect this complex dependency, but on binary based
+distros which try to compile every available feature, you'll be in
+trouble with your static spew.  So this issue is more for upstream if
+they wish better porting to those distros.
+
+Resolutions:
+
+1) drop static option in spew altogether
+
+2) hack up configure.ac to check if ncurses has gpm support, don't
+present the static option when it does
+
+3) patch against ncurses to link without using dlopen
+
+
+I'd be willing to submit patches, but let's see what the feeling is
+about this issue first.
+
+
+-- 
+Anthony G. Basile, Ph.D.
+Gentoo Developer
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/spew-devel">More information about the Spew-devel
+mailing list</a><br>
+</body></html>

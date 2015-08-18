@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Spew-devel] [Bug #2760] Usage error messages could be more helpful
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/spew-devel/2004-December/index.html" >
+   <LINK REL="made" HREF="mailto:spew-devel%40lists.berlios.de?Subject=Re%3A%20%5BSpew-devel%5D%20%5BBug%20%232760%5D%20Usage%20error%20messages%20could%20be%20more%20helpful&In-Reply-To=%3C200412170027.iBH0R67n003864%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000011.html">
+   <LINK REL="Next"  HREF="000013.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Spew-devel] [Bug #2760] Usage error messages could be more helpful</H1>
+    <B>noreply at berlios.de</B> 
+    <A HREF="mailto:spew-devel%40lists.berlios.de?Subject=Re%3A%20%5BSpew-devel%5D%20%5BBug%20%232760%5D%20Usage%20error%20messages%20could%20be%20more%20helpful&In-Reply-To=%3C200412170027.iBH0R67n003864%40unicorn.berlios.de%3E"
+       TITLE="[Spew-devel] [Bug #2760] Usage error messages could be more helpful">noreply at berlios.de
+       </A><BR>
+    <I>Fri Dec 17 01:27:06 CET 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000011.html">[Spew-devel] [Feature #366] Add option to use a buffer offset
+</A></li>
+        <LI>Next message: <A HREF="000013.html">[Spew-devel] [Feature #431] Need more statistical information
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #2760, was updated on 2004-Nov-09 13:53
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 1
+Submitted by: apers
+Assigned to : apers
+Summary: Usage error messages could be more helpful
+
+Details: Some of the error messages spit out when parsing command-line options could be more helpful:
+
+1.  when transfer size in inadvertanly ommited, you get the following message:
+
+   spew: Could not parse size.
+
+A better messages indicating that the paramter is missing would be better. Also a usage statement should be spit out.
+
+2.  When not giving a block size with the -d|--direct-io option, you get
+the following message:
+  
+    spew: MIN_BUFFER_SIZE must be a multiple of 1024 bytes when using direct I/O.
+
+A better message would indicate that you must use the -b option to 
+set the block size to 1024 (or greater).
+
+
+Follow-Ups:
+
+Date: 2004-Dec-16 17:27
+By: apers
+
+Comment:
+Fixed in revision 17.
+
+Now issue the following message if TRANSFER_SIZE and/or FILE arguments are ommitted from the comand-line:
+
+    spew: Need TRANSFER_SIZE and FILE.
+
+a usage message is also emitted.
+
+Now issue the following message if an invalid argument is 
+used for -b|--min-block-size along with the -d|--direct-io option:
+
+   spew: MIN_BUFFER_SIZE must be a multiple of 1024  bytes when  using direct I/O. Use -b|--min-buffer-size to set MIN_BUFFER_SIZE.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=2760&amp;group_id=2389">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=2760&amp;group_id=2389</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000011.html">[Spew-devel] [Feature #366] Add option to use a buffer offset
+</A></li>
+	<LI>Next message: <A HREF="000013.html">[Spew-devel] [Feature #431] Need more statistical information
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/spew-devel">More information about the Spew-devel
+mailing list</a><br>
+</body></html>

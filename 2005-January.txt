@@ -1,0 +1,516 @@
+From noreply at berlios.de  Wed Jan  5 00:49:35 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Tue, 4 Jan 2005 16:49:35 -0700 (MST)
+Subject: [Spew-devel] [Feature #482] Add an option to quit after time
+Message-ID: <200501042349.j04NnZ71016181@unicorn.berlios.de>
+
+Feature Request #482, was updated on 2005-Jan-04 16:49
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=482&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Add an option to quit after time
+
+By: apers
+Date: 2005-Jan-04 16:49
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Add an option that stops the program after a specified
+amount of time has expired, e.g.,
+
+     $ spew --time 24h 1m bigfile
+
+The program should stop after the time has expired or
+the number of iterations requested has completed,
+whichever comes first.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=482&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan  5 00:50:05 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Tue, 4 Jan 2005 16:50:05 -0700 (MST)
+Subject: [Spew-devel] [Feature #482] Add an option to quit after time
+Message-ID: <200501042350.j04No5VM016216@unicorn.berlios.de>
+
+Feature Request #482, was updated on 2005-Jan-04 16:49
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=482&group_id=2389
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Add an option to quit after time
+
+By: apers
+Date: 2005-Jan-04 16:49
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Add an option that stops the program after a specified
+amount of time has expired, e.g.,
+
+     $ spew --time 24h 1m bigfile
+
+The program should stop after the time has expired or
+the number of iterations requested has completed,
+whichever comes first.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=482&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan  5 17:48:05 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 5 Jan 2005 09:48:05 -0700 (MST)
+Subject: [Spew-devel] [Feature #483] Transfer rate confidence intervals
+Message-ID: <200501051648.j05Gm51M004953@unicorn.berlios.de>
+
+Feature Request #483, was updated on 2005-Jan-05 09:48
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=483&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Transfer rate confidence intervals
+
+By: apers
+Date: 2005-Jan-05 09:48
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Add transfer rate confidence intervals, ie. I want to
+know w/ 95% accuracy that I'm w/in 1 MiB/s of the real
+throughput, run until it converges.  Netperf may do
+something like this.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=483&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan  5 17:48:29 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 5 Jan 2005 09:48:29 -0700 (MST)
+Subject: [Spew-devel] [Feature #483] Transfer rate confidence intervals
+Message-ID: <200501051648.j05GmTtP004972@unicorn.berlios.de>
+
+Feature Request #483, was updated on 2005-Jan-05 09:48
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=483&group_id=2389
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Transfer rate confidence intervals
+
+By: apers
+Date: 2005-Jan-05 09:48
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Add transfer rate confidence intervals, ie. I want to
+know w/ 95% accuracy that I'm w/in 1 MiB/s of the real
+throughput, run until it converges.  Netperf may do
+something like this.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=483&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan  5 17:52:15 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 5 Jan 2005 09:52:15 -0700 (MST)
+Subject: [Spew-devel] [Feature #484] Output comma separated value stats
+Message-ID: <200501051652.j05GqFZf005206@unicorn.berlios.de>
+
+Feature Request #484, was updated on 2005-Jan-05 09:52
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=484&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Output comma separated value stats
+
+By: apers
+Date: 2005-Jan-05 09:52
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Add an option to output data in comma separated values
+(csv), so that it can be imported into a spread-sheet.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=484&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan  5 18:16:02 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 5 Jan 2005 10:16:02 -0700 (MST)
+Subject: [Spew-devel] [Feature #485] Specify buffer/transfer size as multiple
+Message-ID: <200501051716.j05HG2iW008093@unicorn.berlios.de>
+
+Feature Request #485, was updated on 2005-Jan-05 10:16
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=485&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Specify buffer/transfer size as multiple
+
+By: apers
+Date: 2005-Jan-05 10:16
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Add a feature so that one can specify buffer size or
+transfer size as a multiple of the other.
+
+Examples:
+
+   $ spew -b 1k 100x bigfile
+
+   $ spew -b  /100 100m bigfile
+
+Need a better way to specify the buffer size is a
+divisor of the 
+transfer size.
+
+  
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=485&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan  5 18:18:54 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 5 Jan 2005 10:18:54 -0700 (MST)
+Subject: [Spew-devel] [Feature #486] Use max size of file or device
+Message-ID: <200501051718.j05HIsnl013410@unicorn.berlios.de>
+
+Feature Request #486, was updated on 2005-Jan-05 10:18
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=486&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Use max size of file or device
+
+By: apers
+Date: 2005-Jan-05 10:18
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Need a way to specify the maximum size of file or
+device, e.g.,
+
+  $ spew -b 1k MAX bigfile
+
+This would probably only work on block device flles.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=486&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan  5 18:22:47 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 5 Jan 2005 10:22:47 -0700 (MST)
+Subject: [Spew-devel] [Feature #487] Iterate over buffer sizes
+Message-ID: <200501051722.j05HMlq0017333@unicorn.berlios.de>
+
+Feature Request #487, was updated on 2005-Jan-05 10:22
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=487&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Iterate over buffer sizes
+
+By: apers
+Date: 2005-Jan-05 10:22
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Add and option to increase the buffer size in each
+iteration.  One suggestion on how to specify this is:
+
+      $ spew -b 1-100k,1k 100m bigfile
+
+Start at 1k for the first iteration.  Each successive
+iteration
+uses a buffer size 1k larger than the previous.  Repeat
+until
+you hit a 100k buffer size.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=487&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan  5 18:23:25 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 5 Jan 2005 10:23:25 -0700 (MST)
+Subject: [Spew-devel] [Feature #484] Output comma separated value stats
+Message-ID: <200501051723.j05HNPtK018568@unicorn.berlios.de>
+
+Feature Request #484, was updated on 2005-Jan-05 09:52
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=484&group_id=2389
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Output comma separated value stats
+
+By: apers
+Date: 2005-Jan-05 09:52
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Add an option to output data in comma separated values
+(csv), so that it can be imported into a spread-sheet.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=484&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan  5 18:23:26 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 5 Jan 2005 10:23:26 -0700 (MST)
+Subject: [Spew-devel] [Feature #486] Use max size of file or device
+Message-ID: <200501051723.j05HNQvU018607@unicorn.berlios.de>
+
+Feature Request #486, was updated on 2005-Jan-05 10:18
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=486&group_id=2389
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Use max size of file or device
+
+By: apers
+Date: 2005-Jan-05 10:18
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Need a way to specify the maximum size of file or
+device, e.g.,
+
+  $ spew -b 1k MAX bigfile
+
+This would probably only work on block device flles.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=486&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan  5 18:23:26 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 5 Jan 2005 10:23:26 -0700 (MST)
+Subject: [Spew-devel] [Feature #485] Specify buffer/transfer size as multiple
+Message-ID: <200501051723.j05HNQmb018585@unicorn.berlios.de>
+
+Feature Request #485, was updated on 2005-Jan-05 10:16
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=485&group_id=2389
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Specify buffer/transfer size as multiple
+
+By: apers
+Date: 2005-Jan-05 10:16
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Add a feature so that one can specify buffer size or
+transfer size as a multiple of the other.
+
+Examples:
+
+   $ spew -b 1k 100x bigfile
+
+   $ spew -b  /100 100m bigfile
+
+Need a better way to specify the buffer size is a
+divisor of the 
+transfer size.
+
+  
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=485&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan  5 18:23:26 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 5 Jan 2005 10:23:26 -0700 (MST)
+Subject: [Spew-devel] [Feature #487] Iterate over buffer sizes
+Message-ID: <200501051723.j05HNQb9018636@unicorn.berlios.de>
+
+Feature Request #487, was updated on 2005-Jan-05 10:22
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=487&group_id=2389
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Iterate over buffer sizes
+
+By: apers
+Date: 2005-Jan-05 10:22
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Add and option to increase the buffer size in each
+iteration.  One suggestion on how to specify this is:
+
+      $ spew -b 1-100k,1k 100m bigfile
+
+Start at 1k for the first iteration.  Each successive
+iteration
+uses a buffer size 1k larger than the previous.  Repeat
+until
+you hit a 100k buffer size.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=487&group_id=2389
+
+
+From noreply at berlios.de  Wed Jan 26 18:04:48 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 26 Jan 2005 10:04:48 -0700 (MST)
+Subject: [Spew-devel] [Bug #3132] The snarf name is used by another project
+Message-ID: <200501261704.j0QH4mpT014773@unicorn.berlios.de>
+
+Bug #3132, was updated on 2005-Jan-26 10:04
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Porting
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: The snarf name is used by another project
+
+Details: The executable <bindir>/snarf interferes with that used by the project
+snarf:
+
+    http://www.xach.com/snarf/
+
+It has been suggested that the name should be changed to gorge, or perhaps removed completely, since this is just a link to the spew executable.  You can get the same functionality by just running spew with the --read option.
+
+This bug was first reported in debian:
+
+     http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=292316
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=3132&group_id=2389
+
+
+From noreply at berlios.de  Thu Jan 27 00:55:45 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Wed, 26 Jan 2005 16:55:45 -0700 (MST)
+Subject: [Spew-devel] [Bug #3132] The snarf name is used by another project
+Message-ID: <200501262355.j0QNtjYa021098@unicorn.berlios.de>
+
+Bug #3132, was updated on 2005-Jan-26 10:04
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Porting
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: The snarf name is used by another project
+
+Details: The executable <bindir>/snarf interferes with that used by the project
+snarf:
+
+    http://www.xach.com/snarf/
+
+It has been suggested that the name should be changed to gorge, or perhaps removed completely, since this is just a link to the spew executable.  You can get the same functionality by just running spew with the --read option.
+
+This bug was first reported in debian:
+
+     http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=292316
+
+Follow-Ups:
+
+Date: 2005-Jan-26 16:55
+By: apers
+
+Comment:
+Renamed the snarf executable (actually just a link) to gorge. Updated
+documentation to reflect the change.
+
+Revision 23.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=3132&group_id=2389
+
+

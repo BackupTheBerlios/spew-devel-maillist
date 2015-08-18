@@ -1,0 +1,171 @@
+From admin at berlios.de  Fri Jul 20 21:02:09 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Jul 2007 13:02:09 -0600 (MDT)
+Subject: [Spew-devel] [Feature #3377] Add CPU load indicator
+Message-ID: <200707201902.l6KJ29Ne009830@unicorn.berlios.de>
+
+Feature Request #3377, was updated on 2007-May-03 12:32
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3377&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Add CPU load indicator
+
+By: apers
+Date: 2007-May-03 12:32
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.3) Gecko/20061201 Firefox/2.0.0.3 (Ubuntu-feisty)
+
+Add some sort of output that shows CPU loading.  Look
+at netperf for 
+examples (http://www.netperf.org/netperf/NetperfPage.html).
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3377&group_id=2389
+
+
+From admin at berlios.de  Fri Jul 20 21:02:30 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Jul 2007 13:02:30 -0600 (MDT)
+Subject: [Spew-devel] [Feature #570] Enable x86_64 compilation amd64
+Message-ID: <200707201902.l6KJ2Utq010578@unicorn.berlios.de>
+
+Feature Request #570, was updated on 2005-Feb-04 07:16
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=570&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Enable x86_64 compilation amd64
+
+By: doiggl
+Date: 2005-Feb-04 07:16
+
+Message:
+Logged In: NO 
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.7.5) Gecko/20041220 MultiZilla/1.7.0.1j
+
+Enable source code to be compiled in suse 9.2 64bit
+amd64 please.
+
+dhcppc0:~/spew-1.0.4 # ./configure
+checking whether to enable maintainer-specific portions
+of Makefiles... no
+checking for a BSD-compatible install...
+/usr/bin/install -c
+checking whether build environment is sane... yes
+checking whether make sets $(MAKE)... yes
+checking for working aclocal-1.4... missing
+checking for working autoconf... found
+checking for working automake-1.4... missing
+checking for working autoheader... found
+checking for working makeinfo... missing
+checking for g++... g++
+checking for C++ compiler default output file name... a.out
+checking whether the C++ compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables...
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for gcc... gcc
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for a BSD-compatible install...
+/usr/bin/install -c
+checking whether make sets $(MAKE)... (cached) yes
+checking for ranlib... ranlib
+checking whether ln -s works... yes
+checking for poptGetContext in -lpopt... no
+configure: error: PACKAGE requires popt
+dhcppc0:~/spew-1.0.4 # 
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=570&group_id=2389
+
+
+From admin at berlios.de  Fri Jul 20 21:06:04 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Jul 2007 13:06:04 -0600 (MDT)
+Subject: [Spew-devel] [Feature #570] Enable x86_64 compilation amd64
+Message-ID: <200707201906.l6KJ64hG019083@unicorn.berlios.de>
+
+Feature Request #570, was updated on 2005-Feb-04 07:16
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=570&group_id=2389
+
+Category: None
+Status: Closed
+Priority: 5
+Summary: Enable x86_64 compilation amd64
+
+By: apers
+Date: 2007-Jul-20 13:06
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.4) Gecko/20061201 Firefox/2.0.0.4 (Ubuntu-feisty)
+
+You need to install the popt_devel RPM.  You may also need
+to install the ncurses-devel RPM.
+
+----------------------------------------------------------------------
+
+By: doiggl
+Date: 2005-Feb-04 07:16
+
+Message:
+Logged In: NO 
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.7.5) Gecko/20041220 MultiZilla/1.7.0.1j
+
+Enable source code to be compiled in suse 9.2 64bit
+amd64 please.
+
+dhcppc0:~/spew-1.0.4 # ./configure
+checking whether to enable maintainer-specific portions
+of Makefiles... no
+checking for a BSD-compatible install...
+/usr/bin/install -c
+checking whether build environment is sane... yes
+checking whether make sets $(MAKE)... yes
+checking for working aclocal-1.4... missing
+checking for working autoconf... found
+checking for working automake-1.4... missing
+checking for working autoheader... found
+checking for working makeinfo... missing
+checking for g++... g++
+checking for C++ compiler default output file name... a.out
+checking whether the C++ compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables...
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for gcc... gcc
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for a BSD-compatible install...
+/usr/bin/install -c
+checking whether make sets $(MAKE)... (cached) yes
+checking for ranlib... ranlib
+checking whether ln -s works... yes
+checking for poptGetContext in -lpopt... no
+configure: error: PACKAGE requires popt
+dhcppc0:~/spew-1.0.4 # 
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=570&group_id=2389
+
+

@@ -1,0 +1,99 @@
+From noreply at berlios.de  Tue May 10 01:26:46 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Mon, 9 May 2005 17:26:46 -0600 (MDT)
+Subject: [Spew-devel] [Bug #3995] Read IOPS statistic calculated incorrectly
+Message-ID: <200505092326.j49NQkb9020420@unicorn.berlios.de>
+
+Bug #3995, was updated on 2005-May-09 17:26
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: Read IOPS statistic calculated incorrectly
+
+Details: The calculation for read IOPS is incorrect.  It is dividing read operations by write transfer time instead of read transfer time.  This results in a divide by zero when using the --raw operation, e.g.,
+
+Total iterations:                                2
+Total runtime:                            00:00:05
+Total read transfer time (RTT):           00:00:00
+Total read transfer rate (RTR):         8.14 MiB/s
+Total read IOPS:                         inf IOPS
+
+and duplicated figures when using the --raw operation, e.g.,
+
+Total iterations:                                2
+Total runtime:                            00:00:05
+Total write transfer time (WTT):          00:00:00
+Total write transfer rate (WTR):        7.83 MiB/s
+Total write IOPS:                    8020.05 IOPS
+Total read transfer time (RTT):           00:00:00
+Total read transfer rate (RTR):         8.11 MiB/s
+Total read IOPS:                     8020.05 IOPS
+
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=3995&group_id=2389
+
+
+From noreply at berlios.de  Sat May 14 00:30:30 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Fri, 13 May 2005 16:30:30 -0600 (MDT)
+Subject: [Spew-devel] [Bug #3995] Read IOPS statistic calculated incorrectly
+Message-ID: <200505132230.j4DMUUtI022517@unicorn.berlios.de>
+
+Bug #3995, was updated on 2005-May-09 17:26
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: Read IOPS statistic calculated incorrectly
+
+Details: The calculation for read IOPS is incorrect.  It is dividing read operations by write transfer time instead of read transfer time.  This results in a divide by zero when using the --raw operation, e.g.,
+
+Total iterations:                                2
+Total runtime:                            00:00:05
+Total read transfer time (RTT):           00:00:00
+Total read transfer rate (RTR):         8.14 MiB/s
+Total read IOPS:                         inf IOPS
+
+and duplicated figures when using the --raw operation, e.g.,
+
+Total iterations:                                2
+Total runtime:                            00:00:05
+Total write transfer time (WTT):          00:00:00
+Total write transfer rate (WTR):        7.83 MiB/s
+Total write IOPS:                    8020.05 IOPS
+Total read transfer time (RTT):           00:00:00
+Total read transfer rate (RTR):         8.11 MiB/s
+Total read IOPS:                     8020.05 IOPS
+
+
+
+Follow-Ups:
+
+Date: 2005-May-13 16:30
+By: apers
+
+Comment:
+Use correct formula to calculate read IOP's.
+
+Revision 31.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=3995&group_id=2389
+
+

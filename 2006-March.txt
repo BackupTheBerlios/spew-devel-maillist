@@ -1,0 +1,57 @@
+From joe at eiler.net  Fri Mar 10 15:49:29 2006
+From: joe at eiler.net (Joe Eiler)
+Date: Fri, 10 Mar 2006 06:49:29 -0800
+Subject: [Spew-devel] Patch to add additional patterns
+Message-ID: <E1FHivo-0002Xo-0q@host01.ipowerweb.com>
+
+A while back I was using spew to help track down a data corruption
+problem so I needed a few more recognizable patterns to track several
+processes.
+
+I ended up converting the zeros class into a more generic bytepatterns
+into its own class.  The patch against trunk is attached.
+
+Joe
+-- 
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: spew.patch
+Type: text/x-patch
+Size: 20448 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/spew-devel/attachments/20060310/34fe2048/attachment.bin>
+
+From andrew-spew at fwe.com  Sat Mar 11 07:01:16 2006
+From: andrew-spew at fwe.com (Andrew Patterson)
+Date: Fri, 10 Mar 2006 23:01:16 -0700
+Subject: [Spew-devel] Patch to add additional patterns
+In-Reply-To: <E1FHivo-0002Xo-0q@host01.ipowerweb.com>
+References: <E1FHivo-0002Xo-0q@host01.ipowerweb.com>
+Message-ID: <441267AC.8060006@fwe.com>
+
+Joe Eiler wrote:
+> A while back I was using spew to help track down a data corruption
+> problem so I needed a few more recognizable patterns to track several
+> processes.
+> 
+
+Glad it helped.
+
+> I ended up converting the zeros class into a more generic bytepatterns
+> into its own class.  The patch against trunk is attached.
+> 
+
+Looks like a very useful contribution.  I'll apply this or something 
+very similar to the next release.  The trunk branch is kind of in 
+maintenance mode, but if I find a critical bug requiring a new release 
+there, I will add it then.  I am getting close the releasing a threaded 
+version, so it will definitely be applied there.
+
+Thanks for the help.
+
+Andrew
+
+
+
+

@@ -1,0 +1,30 @@
+From admin at berlios.de  Tue Dec 11 22:10:15 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 11 Dec 2007 14:10:15 -0700 (MST)
+Subject: [Spew-devel] [Bug #12693] Compile fails with gcc 4.3 due to missing
+	includes
+Message-ID: <200712112110.lBBLAFm7012405@unicorn.berlios.de>
+
+Bug #12693, was updated on 2007-Dec-11 14:10
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Build
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: Compile fails with gcc 4.3 due to missing includes
+
+Details: Due to header cleanup in gcc-4.3, many more header files need to be explicitly included.  See
+
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=455311
+
+for details.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12693&group_id=2389
+
+

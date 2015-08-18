@@ -1,0 +1,44 @@
+From admin at berlios.de  Tue Dec 19 23:17:22 2006
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 19 Dec 2006 15:17:22 -0700 (MST)
+Subject: [Spew-devel] [Bug #9777] Build fails on GNU/kFreeBSD
+Message-ID: <200612192217.kBJMHMCt029831@unicorn.berlios.de>
+
+Bug #9777, was updated on 2006-Dec-19 15:17
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Build
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 3
+Submitted by: apers
+Assigned to : apers
+Summary: Build fails on GNU/kFreeBSD
+
+Details: Reported by debian --
+
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=403774
+
+The current version fails to build on GNU/kFreeBSD.
+
+It needs a fix, see bellow.
+
+--- src/Transfer.h~     2006-12-19 19:48:11.000000000 +0100
++++ src/Transfer.h      2006-12-19 19:48:11.000000000 +0100
+@@ -35,9 +35,7 @@
+  public:
+     static const capacity_t BUFFER_SIZE_INCREMENT = 512LLU;
+     static const capacity_t OFFSET_INCREMENT = BUFFER_SIZE_INCREMENT;
+-#ifdef __linux
+     static const capacity_t DIRECTIO_BUFFER_SIZE_INCREMENT = 1024LLU;
+-#endif
+
+  protected:
+     static const unsigned int PAYLOAD_SIZE = 4;  // sizeof(struct datum) must
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=9777&group_id=2389
+
+

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Spew-devel] [Bug #3995] Read IOPS statistic calculated incorrectly
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/spew-devel/2005-May/index.html" >
+   <LINK REL="made" HREF="mailto:spew-devel%40lists.berlios.de?Subject=Re%3A%20%5BSpew-devel%5D%20%5BBug%20%233995%5D%20Read%20IOPS%20statistic%20calculated%20incorrectly&In-Reply-To=%3C200505092326.j49NQkb9020420%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000040.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Spew-devel] [Bug #3995] Read IOPS statistic calculated incorrectly</H1>
+    <B>noreply at berlios.de</B> 
+    <A HREF="mailto:spew-devel%40lists.berlios.de?Subject=Re%3A%20%5BSpew-devel%5D%20%5BBug%20%233995%5D%20Read%20IOPS%20statistic%20calculated%20incorrectly&In-Reply-To=%3C200505092326.j49NQkb9020420%40unicorn.berlios.de%3E"
+       TITLE="[Spew-devel] [Bug #3995] Read IOPS statistic calculated incorrectly">noreply at berlios.de
+       </A><BR>
+    <I>Tue May 10 01:26:46 CEST 2005</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000040.html">[Spew-devel] [Bug #3995] Read IOPS statistic calculated incorrectly
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #3995, was updated on 2005-May-09 17:26
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: Read IOPS statistic calculated incorrectly
+
+Details: The calculation for read IOPS is incorrect.  It is dividing read operations by write transfer time instead of read transfer time.  This results in a divide by zero when using the --raw operation, e.g.,
+
+Total iterations:                                2
+Total runtime:                            00:00:05
+Total read transfer time (RTT):           00:00:00
+Total read transfer rate (RTR):         8.14 MiB/s
+Total read IOPS:                         inf IOPS
+
+and duplicated figures when using the --raw operation, e.g.,
+
+Total iterations:                                2
+Total runtime:                            00:00:05
+Total write transfer time (WTT):          00:00:00
+Total write transfer rate (WTR):        7.83 MiB/s
+Total write IOPS:                    8020.05 IOPS
+Total read transfer time (RTT):           00:00:00
+Total read transfer rate (RTR):         8.11 MiB/s
+Total read IOPS:                     8020.05 IOPS
+
+
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=3995&amp;group_id=2389">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=3995&amp;group_id=2389</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000040.html">[Spew-devel] [Bug #3995] Read IOPS statistic calculated incorrectly
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/spew-devel">More information about the Spew-devel
+mailing list</a><br>
+</body></html>

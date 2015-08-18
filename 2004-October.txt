@@ -1,0 +1,148 @@
+From noreply at berlios.de  Mon Oct 25 17:29:19 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Mon, 25 Oct 2004 09:29:19 -0600 (MDT)
+Subject: [Spew-devel] [Bug #2685] Use DESTDIR instead of bindir for Debian
+Message-ID: <200410251529.i9PFTJGO003254@unicorn.berlios.de>
+
+Bug #2685, was updated on 2004-Oct-25 09:29
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Build
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: Use DESTDIR instead of bindir for Debian
+
+Details: The Debian package maintainer has request that the following 
+patch be applied to make maintaining the package easier:
+
+--- spew-1.0.3.orig/src/Makefile.am
++++ spew-1.0.3/src/Makefile.am
+@@ -40,5 +40,5 @@
+ spew_LDFLAGS = $(STATIC_LINK)
+ 
+ install-exec-local:
+-       (cd $(bindir) && $(LN_S) -f spew snarf)
+-       (cd $(bindir) && $(LN_S) -f spew regorge)
++       (cd $(DESTDIR)$(bindir) && $(LN_S) -f spew snarf)
++       (cd $(DESTDIR)$(bindir) && $(LN_S) -f spew regorge)
+--- spew-1.0.3.orig/man/Makefile.am
++++ spew-1.0.3/man/Makefile.am
+@@ -11,8 +11,8 @@
+ 
+ 
+ install-data-local:
+-       (cd $(mandir)/man1 && $(LN_S) -f spew.1 snarf.1)
+-       (cd $(mandir)/man1 && $(LN_S) -f spew.1 regorge.1)
++       (cd $(DESTDIR)$(mandir)/man1 && $(LN_S) -f spew.1 snarf.1)
++       (cd $(DESTDIR)$(mandir)/man1 && $(LN_S) -f spew.1 regorge.1)
+ 
+ help2man:
+        help2man --section=1 --no-info --name="measures I/O performance and/or 
+generates I/O load" --include="spew.1.include" --output=spew.1.in ../src/spew
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=2685&group_id=2389
+
+
+From noreply at berlios.de  Thu Oct 28 23:51:26 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 28 Oct 2004 15:51:26 -0600 (MDT)
+Subject: [Spew-devel] [Bug #2685] Use DESTDIR instead of bindir for Debian
+Message-ID: <200410282151.i9SLpQag015826@unicorn.berlios.de>
+
+Bug #2685, was updated on 2004-Oct-25 09:29
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Build
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: Use DESTDIR instead of bindir for Debian
+
+Details: The Debian package maintainer has request that the following 
+patch be applied to make maintaining the package easier:
+
+--- spew-1.0.3.orig/src/Makefile.am
++++ spew-1.0.3/src/Makefile.am
+@@ -40,5 +40,5 @@
+ spew_LDFLAGS = $(STATIC_LINK)
+ 
+ install-exec-local:
+-       (cd $(bindir) && $(LN_S) -f spew snarf)
+-       (cd $(bindir) && $(LN_S) -f spew regorge)
++       (cd $(DESTDIR)$(bindir) && $(LN_S) -f spew snarf)
++       (cd $(DESTDIR)$(bindir) && $(LN_S) -f spew regorge)
+--- spew-1.0.3.orig/man/Makefile.am
++++ spew-1.0.3/man/Makefile.am
+@@ -11,8 +11,8 @@
+ 
+ 
+ install-data-local:
+-       (cd $(mandir)/man1 && $(LN_S) -f spew.1 snarf.1)
+-       (cd $(mandir)/man1 && $(LN_S) -f spew.1 regorge.1)
++       (cd $(DESTDIR)$(mandir)/man1 && $(LN_S) -f spew.1 snarf.1)
++       (cd $(DESTDIR)$(mandir)/man1 && $(LN_S) -f spew.1 regorge.1)
+ 
+ help2man:
+        help2man --section=1 --no-info --name="measures I/O performance and/or 
+generates I/O load" --include="spew.1.include" --output=spew.1.in ../src/spew
+
+
+Follow-Ups:
+
+Date: 2004-Oct-28 15:51
+By: apers
+
+Comment:
+Applied Debian patch to trunk.  Revision 11.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=2685&group_id=2389
+
+
+From noreply at berlios.de  Fri Oct 29 21:48:11 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Fri, 29 Oct 2004 13:48:11 -0600 (MDT)
+Subject: [Spew-devel] [Bug #2707] configure libncurses check broken for Debian/stable
+Message-ID: <200410291948.i9TJmBdm027263@unicorn.berlios.de>
+
+Bug #2707, was updated on 2004-Oct-29 13:48
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Build
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: configure libncurses check broken for Debian/stable
+
+Details: The configure script checks for the call is_term_resized() to determine 
+whether nurses5 is installed.  Apparently this call is only available in later versions of ncurses.  In particular, it is not in the 5.2.2 release shipped in Debian/woody,
+so configuration fails with:
+
+checking for is_term_resized in -lncurses... no
+configure: error: PACKAGE requires ncurses
+
+when run.  Need to find a more common function that is available in ncurses, but
+not available in curses.  Beware of bastardized mixed curses/ncurses installation
+in HP-UX.
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=2707&group_id=2389
+
+

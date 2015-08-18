@@ -1,0 +1,32 @@
+From admin at berlios.de  Thu May  3 20:36:52 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 03 May 2007 18:36:52 -0000
+Subject: [Spew-devel] [Feature #3377] Add CPU load indicator
+Message-ID: <200705031832.l43IWsuv004640@unicorn.berlios.de>
+
+Feature Request #3377, was updated on 2007-May-03 12:32
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3377&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Add CPU load indicator
+
+By: apers
+Date: 2007-May-03 12:32
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.3) Gecko/20061201 Firefox/2.0.0.3 (Ubuntu-feisty)
+
+Add some sort of output that shows CPU loading.  Look
+at netperf for 
+examples (http://www.netperf.org/netperf/NetperfPage.html).
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3377&group_id=2389
+
+

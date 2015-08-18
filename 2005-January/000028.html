@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Spew-devel] [Feature #487] Iterate over buffer sizes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/spew-devel/2005-January/index.html" >
+   <LINK REL="made" HREF="mailto:spew-devel%40lists.berlios.de?Subject=Re%3A%20%5BSpew-devel%5D%20%5BFeature%20%23487%5D%20Iterate%20over%20buffer%20sizes&In-Reply-To=%3C200501051723.j05HNQb9018636%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000027.html">
+   <LINK REL="Next"  HREF="000029.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Spew-devel] [Feature #487] Iterate over buffer sizes</H1>
+    <B>noreply at berlios.de</B> 
+    <A HREF="mailto:spew-devel%40lists.berlios.de?Subject=Re%3A%20%5BSpew-devel%5D%20%5BFeature%20%23487%5D%20Iterate%20over%20buffer%20sizes&In-Reply-To=%3C200501051723.j05HNQb9018636%40unicorn.berlios.de%3E"
+       TITLE="[Spew-devel] [Feature #487] Iterate over buffer sizes">noreply at berlios.de
+       </A><BR>
+    <I>Wed Jan  5 18:23:26 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000027.html">[Spew-devel] [Feature #485] Specify buffer/transfer size as multiple
+</A></li>
+        <LI>Next message: <A HREF="000029.html">[Spew-devel] [Bug #3132] The snarf name is used by another project
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#28">[ date ]</a>
+              <a href="thread.html#28">[ thread ]</a>
+              <a href="subject.html#28">[ subject ]</a>
+              <a href="author.html#28">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Feature Request #487, was updated on 2005-Jan-05 10:22
+You can respond by visiting: 
+<A HREF="http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=487&amp;group_id=2389">http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=487&amp;group_id=2389</A>
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Iterate over buffer sizes
+
+By: apers
+Date: 2005-Jan-05 10:22
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041219 Firefox/1.0 (Debian package 1.0+dfsg.1-1)
+
+Add and option to increase the buffer size in each
+iteration.  One suggestion on how to specify this is:
+
+      $ spew -b 1-100k,1k 100m bigfile
+
+Start at 1k for the first iteration.  Each successive
+iteration
+uses a buffer size 1k larger than the previous.  Repeat
+until
+you hit a 100k buffer size.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+<A HREF="http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=487&amp;group_id=2389">http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=487&amp;group_id=2389</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000027.html">[Spew-devel] [Feature #485] Specify buffer/transfer size as multiple
+</A></li>
+	<LI>Next message: <A HREF="000029.html">[Spew-devel] [Bug #3132] The snarf name is used by another project
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#28">[ date ]</a>
+              <a href="thread.html#28">[ thread ]</a>
+              <a href="subject.html#28">[ subject ]</a>
+              <a href="author.html#28">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/spew-devel">More information about the Spew-devel
+mailing list</a><br>
+</body></html>

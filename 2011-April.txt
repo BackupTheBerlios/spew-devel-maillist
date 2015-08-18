@@ -1,0 +1,49 @@
+From blueness at gentoo.org  Thu Apr  7 13:19:12 2011
+From: blueness at gentoo.org (Anthony G. Basile)
+Date: Thu, 07 Apr 2011 07:19:12 -0400
+Subject: [Spew-devel] Static linking against ncurses won't work if ncurses
+ provides gpm support
+Message-ID: <4D9D9DB0.1060503@gentoo.org>
+
+Hi list,
+
+Low volume list, but a nice little package.  It should get more love.  I
+just introduced it as part of Gentoo's portage so our users can enjoy.
+
+Since gentoo is a from source distro, our packaging system allows the
+user to choose how binaries will be built.  Spew has no problems
+building/running when it is dynamically linked, but static linking is
+problematic.  You hit it when spew is statically linked against a
+gpm-enabled ncurses.  ncurses dlopen's the gpm libraries and so they are
+still needed at runtime --- classic issue between dlopen/static linking.
+
+I resolved the problem by making the gentoo dependency reflect the fact
+that, if you want static linking, then your ncurses must not have gpm
+support.  This is part of the problem behind this discussion:
+
+http://developer.berlios.de/forum/forum.php?forum_id=7361
+
+Gentoo can at least reflect this complex dependency, but on binary based
+distros which try to compile every available feature, you'll be in
+trouble with your static spew.  So this issue is more for upstream if
+they wish better porting to those distros.
+
+Resolutions:
+
+1) drop static option in spew altogether
+
+2) hack up configure.ac to check if ncurses has gpm support, don't
+present the static option when it does
+
+3) patch against ncurses to link without using dlopen
+
+
+I'd be willing to submit patches, but let's see what the feeling is
+about this issue first.
+
+
+-- 
+Anthony G. Basile, Ph.D.
+Gentoo Developer
+
+

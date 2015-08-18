@@ -1,0 +1,440 @@
+From noreply at berlios.de  Fri Feb  4 01:46:59 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 3 Feb 2005 17:46:59 -0700 (MST)
+Subject: [Spew-devel] [Bug #2685] Use DESTDIR instead of bindir for Debian
+Message-ID: <200502040046.j140kxqR011423@unicorn.berlios.de>
+
+Bug #2685, was updated on 2004-Oct-25 09:29
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Build
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: Use DESTDIR instead of bindir for Debian
+
+Details: The Debian package maintainer has request that the following 
+patch be applied to make maintaining the package easier:
+
+--- spew-1.0.3.orig/src/Makefile.am
++++ spew-1.0.3/src/Makefile.am
+@@ -40,5 +40,5 @@
+ spew_LDFLAGS = $(STATIC_LINK)
+ 
+ install-exec-local:
+-       (cd $(bindir) && $(LN_S) -f spew snarf)
+-       (cd $(bindir) && $(LN_S) -f spew regorge)
++       (cd $(DESTDIR)$(bindir) && $(LN_S) -f spew snarf)
++       (cd $(DESTDIR)$(bindir) && $(LN_S) -f spew regorge)
+--- spew-1.0.3.orig/man/Makefile.am
++++ spew-1.0.3/man/Makefile.am
+@@ -11,8 +11,8 @@
+ 
+ 
+ install-data-local:
+-       (cd $(mandir)/man1 && $(LN_S) -f spew.1 snarf.1)
+-       (cd $(mandir)/man1 && $(LN_S) -f spew.1 regorge.1)
++       (cd $(DESTDIR)$(mandir)/man1 && $(LN_S) -f spew.1 snarf.1)
++       (cd $(DESTDIR)$(mandir)/man1 && $(LN_S) -f spew.1 regorge.1)
+ 
+ help2man:
+        help2man --section=1 --no-info --name="measures I/O performance and/or 
+generates I/O load" --include="spew.1.include" --output=spew.1.in ../src/spew
+
+
+Follow-Ups:
+
+Date: 2005-Feb-03 17:46
+By: apers
+
+Comment:
+Fix released in 1.0.4.
+-------------------------------------------------------
+
+Date: 2004-Oct-28 15:51
+By: apers
+
+Comment:
+Applied Debian patch to trunk.  Revision 11.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=2685&group_id=2389
+
+
+From noreply at berlios.de  Fri Feb  4 01:47:32 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 3 Feb 2005 17:47:32 -0700 (MST)
+Subject: [Spew-devel] [Bug #2707] configure libncurses check broken for Debian/stable
+Message-ID: <200502040047.j140lWMQ011438@unicorn.berlios.de>
+
+Bug #2707, was updated on 2004-Oct-29 13:48
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Build
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: configure libncurses check broken for Debian/stable
+
+Details: The configure script checks for the call is_term_resized() to determine 
+whether nurses5 is installed.  Apparently this call is only available in later versions of ncurses.  In particular, it is not in the 5.2.2 release shipped in Debian/woody,
+so configuration fails with:
+
+checking for is_term_resized in -lncurses... no
+configure: error: PACKAGE requires ncurses
+
+when run.  Need to find a more common function that is available in ncurses, but
+not available in curses.  Beware of bastardized mixed curses/ncurses installation
+in HP-UX.
+
+
+Follow-Ups:
+
+Date: 2005-Feb-03 17:47
+By: apers
+
+Comment:
+Fix released in 1.0.4.
+-------------------------------------------------------
+
+Date: 2004-Dec-02 18:04
+By: apers
+
+Comment:
+Use wresize() call in configure.ac to determine whether ncurses is available rather than is_term_resized().
+
+Revision 13.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=2707&group_id=2389
+
+
+From noreply at berlios.de  Fri Feb  4 01:48:10 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 3 Feb 2005 17:48:10 -0700 (MST)
+Subject: [Spew-devel] [Bug #2760] Usage error messages could be more helpful
+Message-ID: <200502040048.j140mAl8011475@unicorn.berlios.de>
+
+Bug #2760, was updated on 2004-Nov-09 13:53
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Functionality
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 1
+Submitted by: apers
+Assigned to : apers
+Summary: Usage error messages could be more helpful
+
+Details: Some of the error messages spit out when parsing command-line options could be more helpful:
+
+1.  when transfer size in inadvertanly ommited, you get the following message:
+
+   spew: Could not parse size.
+
+A better messages indicating that the paramter is missing would be better. Also a usage statement should be spit out.
+
+2.  When not giving a block size with the -d|--direct-io option, you get
+the following message:
+  
+    spew: MIN_BUFFER_SIZE must be a multiple of 1024 bytes when using direct I/O.
+
+A better message would indicate that you must use the -b option to 
+set the block size to 1024 (or greater).
+
+
+Follow-Ups:
+
+Date: 2005-Feb-03 17:48
+By: apers
+
+Comment:
+Fixed in 1.0.4.
+-------------------------------------------------------
+
+Date: 2004-Dec-16 17:27
+By: apers
+
+Comment:
+Fixed in revision 17.
+
+Now issue the following message if TRANSFER_SIZE and/or FILE arguments are ommitted from the comand-line:
+
+    spew: Need TRANSFER_SIZE and FILE.
+
+a usage message is also emitted.
+
+Now issue the following message if an invalid argument is 
+used for -b|--min-block-size along with the -d|--direct-io option:
+
+   spew: MIN_BUFFER_SIZE must be a multiple of 1024  bytes when  using direct I/O. Use -b|--min-buffer-size to set MIN_BUFFER_SIZE.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=2760&group_id=2389
+
+
+From noreply at berlios.de  Fri Feb  4 01:49:11 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 3 Feb 2005 17:49:11 -0700 (MST)
+Subject: [Spew-devel] [Bug #3132] The snarf name is used by another project
+Message-ID: <200502040049.j140nBGQ011499@unicorn.berlios.de>
+
+Bug #3132, was updated on 2005-Jan-26 10:04
+Here is a current snapshot of the bug.
+
+Project: spew
+Category: Porting
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 5
+Submitted by: apers
+Assigned to : apers
+Summary: The snarf name is used by another project
+
+Details: The executable <bindir>/snarf interferes with that used by the project
+snarf:
+
+    http://www.xach.com/snarf/
+
+It has been suggested that the name should be changed to gorge, or perhaps removed completely, since this is just a link to the spew executable.  You can get the same functionality by just running spew with the --read option.
+
+This bug was first reported in debian:
+
+     http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=292316
+
+Follow-Ups:
+
+Date: 2005-Feb-03 17:49
+By: apers
+
+Comment:
+Fix released in 1.0.4.
+-------------------------------------------------------
+
+Date: 2005-Jan-26 16:55
+By: apers
+
+Comment:
+Renamed the snarf executable (actually just a link) to gorge. Updated
+documentation to reflect the change.
+
+Revision 23.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=3132&group_id=2389
+
+
+From noreply at berlios.de  Fri Feb  4 01:50:11 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 3 Feb 2005 17:50:11 -0700 (MST)
+Subject: [Spew-devel] [Feature #409] Use config file for common options
+Message-ID: <200502040050.j140oBSD011524@unicorn.berlios.de>
+
+Feature Request #409, was updated on 2004-Dec-09 22:45
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=409&group_id=2389
+
+Category: None
+Status: Open
+Priority: 3
+Summary: Use config file for common options
+
+By: apers
+Date: 2005-Feb-03 17:50
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20050110 Firefox/1.0 (Debian package 1.0+dfsg.1-2)
+
+Released in 1.0.4.
+
+----------------------------------------------------------------------
+
+By: apers
+Date: 2004-Dec-20 17:07
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041207 Firefox/1.0 (Debian package 1.0-5)
+
+Implemented in revision 18.
+
+Spew now reads command-line options from $HOME/.spewrc or
+from the file pointed to by $SPEWRC.  Options specified on
+the command-line will override options found in .spewrc.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=409&group_id=2389
+
+
+From noreply at berlios.de  Fri Feb  4 01:50:36 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 3 Feb 2005 17:50:36 -0700 (MST)
+Subject: [Spew-devel] [Feature #409] Use config file for common options
+Message-ID: <200502040050.j140oaaw011575@unicorn.berlios.de>
+
+Feature Request #409, was updated on 2004-Dec-09 22:45
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=409&group_id=2389
+
+Category: None
+Status: Closed
+Priority: 3
+Summary: Use config file for common options
+
+By: apers
+Date: 2005-Feb-03 17:50
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20050110 Firefox/1.0 (Debian package 1.0+dfsg.1-2)
+
+Released in 1.0.4.
+
+----------------------------------------------------------------------
+
+By: apers
+Date: 2004-Dec-20 17:07
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041207 Firefox/1.0 (Debian package 1.0-5)
+
+Implemented in revision 18.
+
+Spew now reads command-line options from $HOME/.spewrc or
+from the file pointed to by $SPEWRC.  Options specified on
+the command-line will override options found in .spewrc.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=409&group_id=2389
+
+
+From noreply at berlios.de  Fri Feb  4 01:51:27 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Thu, 3 Feb 2005 17:51:27 -0700 (MST)
+Subject: [Spew-devel] [Feature #432] Output IOPS statistics
+Message-ID: <200502040051.j140pRAR011635@unicorn.berlios.de>
+
+Feature Request #432, was updated on 2004-Dec-23 10:56
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=432&group_id=2389
+
+Category: None
+Status: Closed
+Priority: 3
+Summary: Output IOPS statistics
+
+By: apers
+Date: 2005-Feb-03 17:51
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20050110 Firefox/1.0 (Debian package 1.0+dfsg.1-2)
+
+Released in version 1.0.4.
+
+----------------------------------------------------------------------
+
+By: apers
+Date: 2004-Dec-23 10:56
+
+Message:
+Logged In: YES 
+user_id=11288
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.5) Gecko/20041207 Firefox/1.0 (Debian package 1.0-5)
+
+The --statistics and --detailed statistics option
+should output
+IOPS (I/O's per second) information.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=432&group_id=2389
+
+
+From noreply at berlios.de  Fri Feb  4 15:16:56 2005
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Fri, 4 Feb 2005 15:16:56 +0100 (CET)
+Subject: [Spew-devel] [Feature #570] Enable x86_64 compilation amd64
+Message-ID: <200502041416.j14EGuCw028386@unicorn.berlios.de>
+
+Feature Request #570, was updated on 2005-Feb-04 15:16
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=570&group_id=2389
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Enable x86_64 compilation amd64
+
+By: doiggl
+Date: 2005-Feb-04 15:16
+
+Message:
+Logged In: NO 
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.7.5) Gecko/20041220 MultiZilla/1.7.0.1j
+
+Enable source code to be compiled in suse 9.2 64bit
+amd64 please.
+
+dhcppc0:~/spew-1.0.4 # ./configure
+checking whether to enable maintainer-specific portions
+of Makefiles... no
+checking for a BSD-compatible install...
+/usr/bin/install -c
+checking whether build environment is sane... yes
+checking whether make sets $(MAKE)... yes
+checking for working aclocal-1.4... missing
+checking for working autoconf... found
+checking for working automake-1.4... missing
+checking for working autoheader... found
+checking for working makeinfo... missing
+checking for g++... g++
+checking for C++ compiler default output file name... a.out
+checking whether the C++ compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables...
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for gcc... gcc
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for a BSD-compatible install...
+/usr/bin/install -c
+checking whether make sets $(MAKE)... (cached) yes
+checking for ranlib... ranlib
+checking whether ln -s works... yes
+checking for poptGetContext in -lpopt... no
+configure: error: PACKAGE requires popt
+dhcppc0:~/spew-1.0.4 # 
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=570&group_id=2389
+
+
